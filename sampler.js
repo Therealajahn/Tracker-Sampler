@@ -12,41 +12,57 @@ document.getElementById('prime-audio').addEventListener('click', async (e) => {
 document.getElementById('play-sound').addEventListener('click', () => {
     player.start();
 })
-//start and stop transport with space bar
+//start and stop transport
 let transportRunning = false; 
 
-document.addEventListener('keydown', (e) => {
-    
-    if(!transportRunning){
-        Tone.Transport.start();
-        transportRunning = true;
-    }
-    else if( e.code === 'Space'
-            && transportRunning){
-        Tone.Transport.stop();
-        transportRunning = false;
-    }
-})
-//change the colors of the boxes on every step
-function animateTracker(i){
-   
-    let notes = document.getElementsByClassName('note');
-    let lastNote = notes.length - 1; 
 
-    i = i % notes.length;
+function startandStopTransport(){
+
+//start and stop transport with space bar
     
-    i === 0? 
-    notes[lastNote].style.background = "#D5602A":
-    notes[i - 1].style.background = "#D5602A";
+    document.addEventListener('keydown', (e) => {
+        let toggled = e.code === "Space"? true : false;
+        toggleTransport(toggled);
+    })
     
-    notes[i].style.background = "#000";
+    function toggleTransport(toggled){
+        if(!transportRunning){
+            Tone.Transport.start();
+            transportRunning = true;
+        }
+        else if(toggled
+                && transportRunning){
+            Tone.Transport.stop();
+            transportRunning = false;
+        }
+    }
+    
+}
+startandStopTransport();
+
+//change the colors of the boxes on every step
+function animateTrack(){
+    function changeBox(i){
+    
+        let notes = document.getElementsByClassName('note');
+        let lastNote = notes.length - 1; 
+
+        i = i % notes.length;
+        
+        i === 0? 
+        notes[lastNote].style.background = "#D5602A":
+        notes[i - 1].style.background = "#D5602A";
+        
+        notes[i].style.background = "#000";
+    }
+
+    let i = 0;
+    const loop = new Tone.Loop(() => {
+        i += 1;
+        changeBox(i);
+    }, "8n").start(0);
 }
 
-let i = 0;
-const loop = new Tone.Loop(() => {
-    i += 1;
-    animateTracker(i);
-}, "8n").start(0);
-
+animateTrack();
 
 //create a sequencer to change sampler parameters on every step 
