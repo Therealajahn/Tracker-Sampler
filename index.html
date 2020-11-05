@@ -8,12 +8,18 @@
         <meta name='description' content=''>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
         <link rel='stylesheet' href='style.css'>
+        <script src='Tone.js' defer></script>
+        <script src='sampler.js' defer></script>
     </head>
     <body>
+        
         <button id='prime-audio'>Prime Audio</button>
         <button id='play-sound'>Play stuff</button>
-        <script src='Tone.js'></script>
-        <script src='sampler.js'></script>
+        <label class="switch">
+            <input type="checkbox"></input>
+            <span class="slider round"></span>
+        </label>
+
 
         <div id='tracker'>
             <div class="note 1"></div>
@@ -23,5 +29,7 @@
             <div class="note 5"></div>
             <div class="note 6"></div>
         </div>
+
+       
     </body>
 </html>
