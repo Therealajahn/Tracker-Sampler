@@ -40,29 +40,4 @@ function startandStopTransport(){
 }
 startandStopTransport();
 
-//change the colors of the boxes on every step
-function animateTrack(){
-    function changeBox(i){
-    
-        let notes = document.getElementsByClassName('note');
-        let lastNote = notes.length - 1; 
 
-        i = i % notes.length;
-        
-        i === 0? 
-        notes[lastNote].style.background = "#D5602A":
-        notes[i - 1].style.background = "#D5602A";
-        
-        notes[i].style.background = "#000";
-    }
-
-    let i = 0;
-    const loop = new Tone.Loop(() => {
-        i += 1;
-        changeBox(i);
-    }, "8n").start(0);
-}
-
-animateTrack();
-
-//create a sequencer to change sampler parameters on every step 

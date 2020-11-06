@@ -7,20 +7,24 @@
         <title></title>
         <meta name='description' content=''>
         <meta name='viewport' content='width=device-width, initial-scale=1'>
-        <link rel='stylesheet' href='style.css'>
-        <script src='Tone.js' defer></script>
-        <script src='sampler.js' defer></script>
+        <!-- Linked Documents -->
+        <link rel='stylesheet' href='CSS/buttonsAndSliders.css'>
+        <link rel='stylesheet' href='CSS/style.css'>
+        <script src='JS/Tone.js' defer></script>
+        <script src='JS/sampler.js' defer></script>
     </head>
     <body>
-        
-        <button id='prime-audio'>Prime Audio</button>
-        <button id='play-sound'>Play stuff</button>
-        <label class="switch">
-            <input type="checkbox"></input>
-            <span class="slider round"></span>
-        </label>
-
-
+        <div id="controls">
+            <button id='prime-audio'>Prime Audio</button>
+            <button id='play-sound'>Play stuff</button>
+            <label class="switch">
+                <input type="checkbox"></input>
+                <span class="toggle round"></span>
+            </label>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider round" id="myRange">
+            </div>
+        </div>
         <div id='tracker'>
             <div class="note 1"></div>
             <div class="note 2"></div>
