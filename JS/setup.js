@@ -1,13 +1,20 @@
 
-//create a new sampler
-const player = new Tone.Player('https://tonejs.github.io/audio/berklee/gong_1.mp3').toDestination();
 
 //attach a click listener to a play button
 document.getElementById('prime-audio').addEventListener('click', async (e) => {
 	await Tone.start()
     e.target.innerHTML = 'Audio Primed';
+    testAudio()
 })
-
+//test audio
+function testAudio(){
+    const synth = new Tone.Synth().toDestination();
+    const now = Tone.now()
+    synth.triggerAttackRelease("C4", "8n", now)
+    synth.triggerAttackRelease("E4", "8n", now + 0.5)
+    synth.triggerAttackRelease("G4", "8n", now + 1)
+    
+}
 //play sound from button
 document.getElementById('play-sound').addEventListener('click', () => {
     player.start();
