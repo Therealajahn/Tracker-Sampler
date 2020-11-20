@@ -1,5 +1,7 @@
 body{
     background: #384FC7;
+    margin:0;
+    padding:0;
 }
 
 
@@ -7,10 +9,19 @@ body{
 
 #controls{
     display: grid;
-    grid-template-columns: repeat(2,200px);
-    grid-template-rows: repeat(3,200px);
+    grid-template-columns: repeat(1,200px);
+    grid-template-rows: repeat(1,100px);
 }
 
 #tracker{
-    margin-top: 30px;
+    margin-top: 10px;
+    background: #270C1A;
+    height: 80vh;
+    width: 100vw;
+    display:grid;
+    grid: 1fr / repeat(4,1fr);
+}
+
+.off-column{
+    background: #D8275A;
 }
