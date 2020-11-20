@@ -22,6 +22,18 @@ body{
     grid: 1fr / repeat(4,1fr);
 }
 
-.off-column{
+.column{
+    display:flex;
+    
+}
+
+.off.column{
     background: #D8275A;
+}
+
+.note-row{
+    width: 231px;
+    height: 43px;
+    grid-area: 'note';
+    background: #771747;
 }
